@@ -50,6 +50,10 @@ namespace Repositories
 
                 result.CategoryName = category.CategoryName;
                 result.CategoryDescription = category.CategoryDescription;
+                result.CreatedBy = category.CreatedBy;
+                result.ModifiedBy = category.ModifiedBy;
+                result.CreatedAt = category.CreatedAt;
+                result.ModifiedAt = category.ModifiedAt;
 
 
                 await appDbContext.SaveChangesAsync();

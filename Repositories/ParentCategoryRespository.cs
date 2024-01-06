@@ -45,6 +45,11 @@ namespace Repositories
                
                 result.Parent_Category_Name = parentcategory.Parent_Category_Name;
                 result.Description = parentcategory.Description;
+                result.CreatedAt = parentcategory.CreatedAt;
+                result.CreatedBy = parentcategory.CreatedBy;
+                result.ModifiedBy = parentcategory.ModifiedBy;
+                result.ModifiedAt = parentcategory.ModifiedAt;
+                
                 
 
                 await appDbContext.SaveChangesAsync();

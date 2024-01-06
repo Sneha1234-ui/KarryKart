@@ -45,6 +45,9 @@ namespace Repositories
 
                 result.Name = Product.Name;
                 result.FullDescription = Product.FullDescription;
+                result.price = Product.price;
+                result.AdminComment = Product.AdminComment;
+                result.AvailableEndDate = Product.AvailableEndDate;
 
 
                 await appDbContext.SaveChangesAsync();

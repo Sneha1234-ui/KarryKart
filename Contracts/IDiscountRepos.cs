@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Contracts
 {
-    public interface IDiscounts
+    public interface IDiscountRepos
     {
         Task<IEnumerable<Discounts>> GetDiscounts(); // search
         Task<Discounts> GetDiscountById(int DiscountId); // search by id

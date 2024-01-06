@@ -16,6 +16,10 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("Data")));
 builder.Services.AddScoped<IParentrepo, ParentCategoryRepository>();
 builder.Services.AddScoped<Icategoryrepo, CategoryRepository>();
 builder.Services.AddScoped<IManufacturers, ManufacturerRepository>();
+builder.Services.AddScoped<IProductrepo, ProductRepos>();
+builder.Services.AddScoped<IDiscountRepos, DiscountRepos>();
+builder.Services.AddScoped<ITaxRepos, TaxRepos>();
+
 
 
 var app = builder.Build();

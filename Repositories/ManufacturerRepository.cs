@@ -45,6 +45,10 @@ namespace Repositories
 
                 result.ManufacturerName = manufacturers.ManufacturerName;
                 result.ManufacturerDescription = manufacturers.ManufacturerDescription;
+                result.CreatedAt=manufacturers.CreatedAt;
+                result.ModifiedAt=manufacturers.ModifiedAt;
+                result.CreatedBy = manufacturers.CreatedBy;
+                result.ModifiedBy = manufacturers.ModifiedBy;
 
 
                 await appDbContext.SaveChangesAsync();

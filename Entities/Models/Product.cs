@@ -32,7 +32,7 @@ namespace Entities.Models
         public ReferenceUnitEnum ReferenceUnit { get; set; }
         // FORIGN KEY
         public int DiscountId { get; set; }
-        public Discount discount { get; set; }
+        public Discounts discount { get; set; }
         public bool TaxExpempt { get; set; }
         //forgin key
         public int TaxId { get; set; }
@@ -40,7 +40,7 @@ namespace Entities.Models
         public bool TelecommunicationBoardCastingAndElectronicServices { get; set; }
         // forgin key
         public int VendorId { get; set; }
-        public Vendor Vendor { get; set; }
+        public Vendors Vendor { get; set; }
     }
 }
 

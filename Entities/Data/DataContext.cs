@@ -25,6 +25,9 @@ namespace Entities.Data
             public virtual DbSet<Category> category { get; set; }
             public virtual DbSet<Manufacturers> manufacturer { get; set; }
             public virtual DbSet<Product> Product { get; set; }
+            public virtual DbSet<Discounts> Discount { get; set; }
+            public virtual DbSet<Tax> Tax { get; set; }
+            public virtual DbSet<Vendors> Vendors { get; set; }
 
 
 
