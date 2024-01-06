@@ -9,8 +9,8 @@ namespace Contracts
         Task<IEnumerable<Category>> GetCategory();
         Task<Category> GetCategorybyId(int Id);
         Task<Category> AddCategory(Category category);
-        Task<Parent_Category> UpdateCategory(Category category);
-        Task<Parent_Category> DeleteCategory(int Id);
+        Task<Category> UpdateCategory(Category category);
+        Task<Category> DeleteCategory(int Id);
 
 
     }

@@ -4,6 +4,7 @@ using Entities.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entities.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240105053104_New")]
+    partial class New
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,45 +57,14 @@ namespace Entities.Migrations
                     b.Property<int>("ParentCategoryId")
                         .HasColumnType("int");
 
-                    b.HasKey("CategoryId");
-
-                    b.HasIndex("ParentCategoryId");
-
-                    b.ToTable("category");
-                });
-
-            modelBuilder.Entity("Entities.Models.Manufacturers", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int?>("ProductCategoryNameId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.HasKey("CategoryId");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                    b.HasIndex("ProductCategoryNameId");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ManufacturerDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ManufacturerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("manufacturer");
+                    b.ToTable("category");
                 });
 
             modelBuilder.Entity("Entities.Models.Parent_Category", b =>
@@ -135,13 +107,11 @@ namespace Entities.Migrations
 
             modelBuilder.Entity("Entities.Models.Category", b =>
                 {
-                    b.HasOne("Entities.Models.Parent_Category", "ParentCategory")
+                    b.HasOne("Entities.Models.Parent_Category", "ProductCategoryName")
                         .WithMany()
-                        .HasForeignKey("ParentCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductCategoryNameId");
 
-                    b.Navigation("ParentCategory");
+                    b.Navigation("ProductCategoryName");
                 });
 #pragma warning restore 612, 618
         }

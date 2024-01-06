@@ -17,7 +17,7 @@ namespace KarryKart.Controllers
         }
 
 
-        // GET: api/TrainingStaffs/5
+       
         [HttpGet(" GetParentCategory")]
         public async Task<IEnumerable<Parent_Category>> GetParentCategory()
         {
