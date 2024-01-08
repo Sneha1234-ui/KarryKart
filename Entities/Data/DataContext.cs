@@ -23,12 +23,18 @@ namespace Entities.Data
 
             public virtual DbSet<Parent_Category> ParentCategory { get; set; }
             public virtual DbSet<Category> category { get; set; }
-            public virtual DbSet<Manufacturers> manufacturer { get; set; }
+            public virtual DbSet<Manufacturer> manufacturers { get; set; }
             public virtual DbSet<Product> Product { get; set; }
             public virtual DbSet<Discounts> Discount { get; set; }
             public virtual DbSet<Tax> Tax { get; set; }
             public virtual DbSet<Vendors> Vendors { get; set; }
-
+            public virtual DbSet<Shipping> Shipping { get; set; }
+            public virtual DbSet<Inventory> Inventory { get; set; }
+            public virtual DbSet<Rental> Rental { get; set; }
+            public virtual DbSet<GiftCard> GiftCards { get; set; }
+            public virtual DbSet<DownloadableProduct> DownloadProduct { get; set; }
+            public virtual DbSet<Recurring_Product> RecurringProduct { get; set; }
+            public virtual DbSet<SEO> SEO { get; set; }
 
 
 

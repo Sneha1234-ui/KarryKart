@@ -3,11 +3,11 @@ namespace Contracts
 {
     public interface IManufacturers
     {
-        Task<IEnumerable<Manufacturers>> GetManufacturer();
-        Task<Manufacturers> GetManufacturerbyId(int id);
-        Task<Manufacturers> AddManufacturer(Manufacturers manufaturer);
-        Task<Manufacturers> UpdateManufacturer(Manufacturers manufaturer);
-        Task <Manufacturers> DeleteManufacturer(int id);
+        Task<IEnumerable<Manufacturer>> GetManufacturer();
+        Task<Manufacturer> GetManufacturerbyId(int id);
+        Task<Manufacturer> AddManufacturer(Manufacturer manufaturer);
+        Task<Manufacturer> UpdateManufacturer(Manufacturer manufaturer);
+        Task<Manufacturer> DeleteManufacturer(int id);
     }
 
 

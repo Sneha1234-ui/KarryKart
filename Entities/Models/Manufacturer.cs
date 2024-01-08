@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Category
+    public class Manufacturer
     {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-        public string CategoryDescription { get; set; }
-        public int ParentCategoryId { get; set; }
+        [Key]
+        public int ManufacturerId { get; set; }
+        public string ManufacturerName { get; set; }
+        public string ManufacturerDescription { get; set; }
         
-        public int TaxId { get; set; }
-        public Tax tax { get; set; }
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public DateTime ModifiedAt { get; set; }
         public string ModifiedBy { get; set; }
         public bool IsDeleted { get; set; }
-        public Parent_Category ParentCategory { get; set;}
-
+       
     }
 }

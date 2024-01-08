@@ -17,36 +17,36 @@ namespace Repositories
 
 
 
-        public async Task<IEnumerable<Manufacturers>> GetManufacturer()
+        public async Task<IEnumerable<Manufacturer>> GetManufacturer()
         {
-            return await appDbContext.manufacturer.ToListAsync();
+            return await appDbContext.manufacturers.ToListAsync();
         }
 
-        public async Task<Manufacturers> GetManufacturerbyId(int Id)
+        public async Task<Manufacturer> GetManufacturerbyId(int Id)
         {
-            return await appDbContext.manufacturer
-                .FirstOrDefaultAsync(p => p.Id == Id);
+            return await appDbContext.manufacturers
+                .FirstOrDefaultAsync(p => p.ManufacturerId == Id);
         }
 
-        public async Task<Manufacturers> AddManufacturer(Manufacturers manufacturers)
+        public async Task<Manufacturer> AddManufacturer(Manufacturer manufacturers)
         {
-            var result = await appDbContext.manufacturer.AddAsync(manufacturers);
+            var result = await appDbContext.manufacturers.AddAsync(manufacturers);
             await appDbContext.SaveChangesAsync();
             return result.Entity;
         }
 
-        public async Task<Manufacturers> UpdateManufacturer(Manufacturers manufacturers)
+        public async Task<Manufacturer> UpdateManufacturer(Manufacturer manufacturers)
         {
-            var result = await appDbContext.manufacturer
-                .FirstOrDefaultAsync(p => p.Id == manufacturers.Id);
+            var result = await appDbContext.manufacturers
+                .FirstOrDefaultAsync(p => p.ManufacturerId == manufacturers.ManufacturerId);
 
             if (result != null)
             {
 
                 result.ManufacturerName = manufacturers.ManufacturerName;
                 result.ManufacturerDescription = manufacturers.ManufacturerDescription;
-                result.CreatedAt=manufacturers.CreatedAt;
-                result.ModifiedAt=manufacturers.ModifiedAt;
+                result.CreatedAt = manufacturers.CreatedAt;
+                result.ModifiedAt = manufacturers.ModifiedAt;
                 result.CreatedBy = manufacturers.CreatedBy;
                 result.ModifiedBy = manufacturers.ModifiedBy;
 
@@ -58,13 +58,13 @@ namespace Repositories
             return null;
         }
 
-        public async Task<Manufacturers> DeleteManufacturer(int Id)
+        public async Task<Manufacturer> DeleteManufacturer(int Id)
         {
-            var result = await appDbContext.manufacturer
-                .FirstOrDefaultAsync(p => p.Id == Id);
+            var result = await appDbContext.manufacturers
+                .FirstOrDefaultAsync(p => p.ManufacturerId == Id);
             if (result != null)
             {
-                appDbContext.manufacturer.Remove(result);
+                appDbContext.manufacturers.Remove(result);
                 await appDbContext.SaveChangesAsync();
 
             }

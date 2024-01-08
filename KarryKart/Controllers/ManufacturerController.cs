@@ -19,7 +19,7 @@ namespace KarryKart.Controllers
 
 
         [HttpGet(" GetManufacturer")]
-        public async Task<IEnumerable<Manufacturers>> GetManufacturer()
+        public async Task<IEnumerable<Manufacturer>> GetManufacturer()
         {
             var manu = await _iManufacturerRepository.GetManufacturer();
             return manu;
@@ -28,7 +28,7 @@ namespace KarryKart.Controllers
 
 
         [HttpGet("GetManufacturerbyId")]
-        public async Task<ActionResult<Manufacturers>> GetManufacturerbyId(int id)
+        public async Task<ActionResult<Manufacturer>> GetManufacturerbyId(int id)
         {
             var manu = await _iManufacturerRepository.GetManufacturerbyId(id);
             return manu;
@@ -36,19 +36,19 @@ namespace KarryKart.Controllers
 
 
         [HttpPost("AddManufacturer")]
-        public async Task<ActionResult<Manufacturers>> AddManufacturer(Manufacturers manufacturers)
+        public async Task<ActionResult<Manufacturer>> AddManufacturer(Manufacturer manufacturers)
         {
-            Manufacturers Response = new Manufacturers();
+            Manufacturer Response = new Manufacturer();
             if (manufacturers != null)
             {
-                manufacturers.Id = 0;
+                manufacturers.ManufacturerId = 0;
                 Response = await _iManufacturerRepository.AddManufacturer(manufacturers);
             }
 
             return Response;
         }
         [HttpPut("UpdateManufacturer/{id}")]
-        public async Task<ActionResult<Manufacturers>> UpdateManufacturer(int id, Manufacturers manu)
+        public async Task<ActionResult<Manufacturer>> UpdateManufacturer(int id, Manufacturer manu)
         {
 
 

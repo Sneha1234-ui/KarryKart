@@ -12,7 +12,7 @@ namespace Entities.Models
         [Key]
         public int Discount_ID { get; set; }
         public string Discount_Name { get; set; }
-        public decimal Discount_Percent { get; set; }
+        public float Discount_Percent { get; set; }
         public string Discount_Type { get; set; }
         public DateTime Start_Date { get; set; }
         public DateTime End_Date { get; set; }

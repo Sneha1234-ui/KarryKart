@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Entities.Models.Enum
 {
-    public enum VendorEnum
+    public enum BackordersEnum
     {
-        NoVendor,
-        Vendor1,
-        Vendor2
-    }
+       
 
+        AllowQtyBelow0,
+
+        NoBackorders,
+
+        AllowQtyBelow0andNotifyCustomer
+
+    
+    }
 }

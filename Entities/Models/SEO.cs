@@ -6,21 +6,17 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Category
+    public class SEO
     {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-        public string CategoryDescription { get; set; }
-        public int ParentCategoryId { get; set; }
-        
-        public int TaxId { get; set; }
-        public Tax tax { get; set; }
+        public int Id { get; set; }
+        public string? searchenginefriendlypagename { get; set; }
+        public string? MetaTitle { get; set; }
+        public string? MetaKeywords { get; set; }
+        public string? MetaDescription { get; set; }
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public DateTime ModifiedAt { get; set; }
         public string ModifiedBy { get; set; }
         public bool IsDeleted { get; set; }
-        public Parent_Category ParentCategory { get; set;}
-
     }
 }

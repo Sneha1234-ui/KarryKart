@@ -19,6 +19,8 @@ builder.Services.AddScoped<IManufacturers, ManufacturerRepository>();
 builder.Services.AddScoped<IProductrepo, ProductRepos>();
 builder.Services.AddScoped<IDiscountRepos, DiscountRepos>();
 builder.Services.AddScoped<ITaxRepos, TaxRepos>();
+builder.Services.AddScoped<IVendorRepository, VendorRepository>();
+builder.Services.AddScoped<IShippingRepos, ShippingRepos>();
 
 
 

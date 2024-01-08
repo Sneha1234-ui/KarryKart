@@ -1,7 +1,8 @@
-﻿using Entities.Migrations;
+﻿
 using Entities.Models.Enum;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -25,22 +26,27 @@ namespace Entities.Models
         public bool pangvBasePriceEnable { get; set; }
         public double AmountInProduct { get; set; }
         // enum
+        [Column(TypeName = "nvarchar(100)")]
         public UnitOfProduct unitOfProduct { get; set; }
 
         public double ReferenceAmount { get; set; }
         //enum
+        [Column(TypeName = "nvarchar(100)")]
         public ReferenceUnitEnum ReferenceUnit { get; set; }
         // FORIGN KEY
         public int DiscountId { get; set; }
         public Discounts discount { get; set; }
         public bool TaxExpempt { get; set; }
-        //forgin key
-        public int TaxId { get; set; }
-        public Tax tax { get; set; }
+       
         public bool TelecommunicationBoardCastingAndElectronicServices { get; set; }
         // forgin key
         public int VendorId { get; set; }
         public Vendors Vendor { get; set; }
+        public DateTime Created_At { get; set; }
+        public string Created_By { get; set; }
+        public string Modified_By { get; set; }
+        public DateTime Modified_At { get; set; }
+        public bool IsDelete { get; set; }
     }
 }
 

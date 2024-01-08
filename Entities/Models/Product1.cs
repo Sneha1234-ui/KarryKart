@@ -1,8 +1,9 @@
-﻿using Entities.Migrations;
+﻿
 using Entities.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -29,12 +30,16 @@ namespace Entities.Models
         public int GTINNumber { get; set; }
         public int ManufacturerpartNumber { get; set; }
         public bool Showonhomepage { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
         public ProductTypeEnum ProductType { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
         public ProductTemplateEnum ProductTemplate { get; set; }
         public bool VisibleIndividualy { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
         public CustomerRolesEnum CustomerRoles { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
         public limitedToStoresEnum LimitedToStores { get; set; }
-        public VendorEnum vendor { get; set; }
+        
         public bool RequireotherProducts { get; set; }
         public int RequiredproductIDs { get; set; }
         public bool Automaticallyaddproductstocart { get; set; }
