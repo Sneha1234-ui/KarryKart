@@ -14,5 +14,6 @@ namespace Contracts
         Task<Discounts> AddDiscounts(Discounts discount); // add new
         Task<Discounts> UpdateDiscounts(Discounts discount); // edit
         Task<Discounts> DeleteDiscounts(int DiscountId); // delete
+        Task<IQueryable<Discounts>> GetDiscountsByName(string name);
     }
 }

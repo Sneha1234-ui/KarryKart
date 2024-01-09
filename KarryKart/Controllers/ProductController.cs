@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using Entities.Models;
+using Entities.Models.Enum;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
@@ -27,6 +28,18 @@ namespace KarryKart.Controllers
         {
             var product = await _iProductRepository.GetProductbyId(Id);
             return product;
+        }
+        [HttpGet("GetProductByName")]
+        public async Task<ActionResult<IQueryable<Product>>> GetProductbyName(string name)
+        {
+            var pro = await _iProductRepository.GetProductByName(name);
+            return Ok(pro);
+        }
+        [HttpGet("GetProductByEnum")]
+        public async Task<ActionResult<IQueryable<Inventory>>> GetInventoryByEnum(ProductTypeEnum status)
+        {
+            var result = await _iProductRepository.SearchbyProductType(status);
+            return Ok(result);
         }
         [HttpPost("AddProduct")]
         public async Task<ActionResult<Product>> AddProduct(Product Product)

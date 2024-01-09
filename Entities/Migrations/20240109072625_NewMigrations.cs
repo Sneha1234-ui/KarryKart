@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Entities.Migrations
 {
     /// <inheritdoc />
-    public partial class Test2 : Migration
+    public partial class NewMigrations : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,6 +31,83 @@ namespace Entities.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Discount", x => x.Discount_ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DownloadProduct",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UsedownloadURL = table.Column<bool>(type: "bit", nullable: false),
+                    DownloadURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Unlimiteddownloads = table.Column<bool>(type: "bit", nullable: false),
+                    NoofDays = table.Column<int>(type: "int", nullable: false),
+                    Downloadactivationtype = table.Column<int>(type: "int", nullable: false),
+                    Hasuseragreement = table.Column<bool>(type: "bit", nullable: false),
+                    Hassampledownloadfile = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DownloadProduct", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GiftCards",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Giftcard = table.Column<bool>(type: "bit", nullable: false),
+                    giftcardtype = table.Column<int>(type: "int", nullable: false),
+                    Overriddengiftcardamount = table.Column<double>(type: "float", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GiftCards", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Inventory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    inventoryMethodEnum = table.Column<int>(type: "int", nullable: false),
+                    Stockquantity = table.Column<int>(type: "int", nullable: false),
+                    warehouse = table.Column<int>(type: "int", nullable: false),
+                    MultipleWarehouse = table.Column<bool>(type: "bit", nullable: false),
+                    Displayavailability = table.Column<bool>(type: "bit", nullable: false),
+                    Minimumstockqty = table.Column<int>(type: "int", nullable: false),
+                    lowstockactivityenum = table.Column<int>(type: "int", nullable: false),
+                    Notifyforqtybelow = table.Column<int>(type: "int", nullable: false),
+                    backordersbelow = table.Column<int>(type: "int", nullable: false),
+                    Allowbackinstocksubscriptions = table.Column<bool>(type: "bit", nullable: false),
+                    productavailabilityrange = table.Column<int>(type: "int", nullable: false),
+                    Allowonlyexistingattributecombinations = table.Column<bool>(type: "bit", nullable: false),
+                    Minimumcartqty = table.Column<int>(type: "int", nullable: false),
+                    Maximumcartqty = table.Column<int>(type: "int", nullable: false),
+                    Allowedquantities = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Notreturnable = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Inventory", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,6 +147,92 @@ namespace Entities.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ParentCategory", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RecurringProduct",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Cycle_Length = table.Column<int>(type: "int", nullable: false),
+                    Period = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    Total_Cycle = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecurringProduct", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Rental",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsRental = table.Column<bool>(type: "bit", nullable: false),
+                    RentalPeriodLength = table.Column<int>(type: "int", nullable: false),
+                    RentalPeriod = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rental", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SEO",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    searchenginefriendlypagename = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MetaTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MetaKeywords = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MetaDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SEO", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Shipping",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ShippingEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    Weight = table.Column<double>(type: "float", nullable: false),
+                    Width = table.Column<double>(type: "float", nullable: false),
+                    Height = table.Column<double>(type: "float", nullable: false),
+                    FreeShipping = table.Column<bool>(type: "bit", nullable: false),
+                    Shippingseperately = table.Column<bool>(type: "bit", nullable: false),
+                    AdditionalShippingCharges = table.Column<double>(type: "float", nullable: false),
+                    deliveryDate = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shipping", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -129,6 +292,7 @@ namespace Entities.Migrations
                     CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ParentCategoryId = table.Column<int>(type: "int", nullable: false),
+                    TaxId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -143,6 +307,12 @@ namespace Entities.Migrations
                         column: x => x.ParentCategoryId,
                         principalTable: "ParentCategory",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_category_Tax_TaxId",
+                        column: x => x.TaxId,
+                        principalTable: "Tax",
+                        principalColumn: "TaxId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -165,12 +335,11 @@ namespace Entities.Migrations
                     MaxAmount = table.Column<double>(type: "float", nullable: false),
                     pangvBasePriceEnable = table.Column<bool>(type: "bit", nullable: false),
                     AmountInProduct = table.Column<double>(type: "float", nullable: false),
-                    unitOfProduct = table.Column<int>(type: "int", nullable: false),
+                    unitOfProduct = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     ReferenceAmount = table.Column<double>(type: "float", nullable: false),
-                    ReferenceUnit = table.Column<int>(type: "int", nullable: false),
+                    ReferenceUnit = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     DiscountId = table.Column<int>(type: "int", nullable: false),
                     TaxExpempt = table.Column<bool>(type: "bit", nullable: false),
-                    TaxId = table.Column<int>(type: "int", nullable: false),
                     TelecommunicationBoardCastingAndElectronicServices = table.Column<bool>(type: "bit", nullable: false),
                     VendorId = table.Column<int>(type: "int", nullable: false),
                     Created_At = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -184,17 +353,23 @@ namespace Entities.Migrations
                     SKU = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     ManufacturerId = table.Column<int>(type: "int", nullable: false),
+                    GiftCardId = table.Column<int>(type: "int", nullable: false),
+                    Recurring_ProductId = table.Column<int>(type: "int", nullable: false),
+                    RentalId = table.Column<int>(type: "int", nullable: false),
+                    SeoId = table.Column<int>(type: "int", nullable: false),
+                    DownloadableProductId = table.Column<int>(type: "int", nullable: false),
+                    ShippingId = table.Column<int>(type: "int", nullable: false),
+                    InventoryId = table.Column<int>(type: "int", nullable: false),
                     Published = table.Column<bool>(type: "bit", nullable: false),
                     ProductTags = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     GTINNumber = table.Column<int>(type: "int", nullable: false),
                     ManufacturerpartNumber = table.Column<int>(type: "int", nullable: false),
                     Showonhomepage = table.Column<bool>(type: "bit", nullable: false),
-                    ProductType = table.Column<int>(type: "int", nullable: false),
-                    ProductTemplate = table.Column<int>(type: "int", nullable: false),
+                    ProductType = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    ProductTemplate = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     VisibleIndividualy = table.Column<bool>(type: "bit", nullable: false),
-                    CustomerRoles = table.Column<int>(type: "int", nullable: false),
-                    LimitedToStores = table.Column<int>(type: "int", nullable: false),
-                    vendors = table.Column<int>(type: "int", nullable: false),
+                    CustomerRoles = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    LimitedToStores = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     RequireotherProducts = table.Column<bool>(type: "bit", nullable: false),
                     RequiredproductIDs = table.Column<int>(type: "int", nullable: false),
                     Automaticallyaddproductstocart = table.Column<bool>(type: "bit", nullable: false),
@@ -214,10 +389,46 @@ namespace Entities.Migrations
                         principalColumn: "Discount_ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Product_Tax_TaxId",
-                        column: x => x.TaxId,
-                        principalTable: "Tax",
-                        principalColumn: "TaxId",
+                        name: "FK_Product_DownloadProduct_DownloadableProductId",
+                        column: x => x.DownloadableProductId,
+                        principalTable: "DownloadProduct",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Product_GiftCards_GiftCardId",
+                        column: x => x.GiftCardId,
+                        principalTable: "GiftCards",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Product_Inventory_InventoryId",
+                        column: x => x.InventoryId,
+                        principalTable: "Inventory",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Product_RecurringProduct_Recurring_ProductId",
+                        column: x => x.Recurring_ProductId,
+                        principalTable: "RecurringProduct",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Product_Rental_RentalId",
+                        column: x => x.RentalId,
+                        principalTable: "Rental",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Product_SEO_SeoId",
+                        column: x => x.SeoId,
+                        principalTable: "SEO",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Product_Shipping_ShippingId",
+                        column: x => x.ShippingId,
+                        principalTable: "Shipping",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Product_Vendors_VendorId",
@@ -245,6 +456,11 @@ namespace Entities.Migrations
                 column: "ParentCategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_category_TaxId",
+                table: "category",
+                column: "TaxId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Product_CategoryId",
                 table: "Product",
                 column: "CategoryId");
@@ -255,14 +471,44 @@ namespace Entities.Migrations
                 column: "DiscountId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Product_DownloadableProductId",
+                table: "Product",
+                column: "DownloadableProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_GiftCardId",
+                table: "Product",
+                column: "GiftCardId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_InventoryId",
+                table: "Product",
+                column: "InventoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Product_ManufacturerId",
                 table: "Product",
                 column: "ManufacturerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Product_TaxId",
+                name: "IX_Product_Recurring_ProductId",
                 table: "Product",
-                column: "TaxId");
+                column: "Recurring_ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_RentalId",
+                table: "Product",
+                column: "RentalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_SeoId",
+                table: "Product",
+                column: "SeoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_ShippingId",
+                table: "Product",
+                column: "ShippingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_VendorId",
@@ -280,7 +526,25 @@ namespace Entities.Migrations
                 name: "Discount");
 
             migrationBuilder.DropTable(
-                name: "Tax");
+                name: "DownloadProduct");
+
+            migrationBuilder.DropTable(
+                name: "GiftCards");
+
+            migrationBuilder.DropTable(
+                name: "Inventory");
+
+            migrationBuilder.DropTable(
+                name: "RecurringProduct");
+
+            migrationBuilder.DropTable(
+                name: "Rental");
+
+            migrationBuilder.DropTable(
+                name: "SEO");
+
+            migrationBuilder.DropTable(
+                name: "Shipping");
 
             migrationBuilder.DropTable(
                 name: "Vendors");
@@ -293,6 +557,9 @@ namespace Entities.Migrations
 
             migrationBuilder.DropTable(
                 name: "ParentCategory");
+
+            migrationBuilder.DropTable(
+                name: "Tax");
         }
     }
 }

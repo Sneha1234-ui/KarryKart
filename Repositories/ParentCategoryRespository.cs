@@ -28,6 +28,16 @@ namespace Repositories
                 .FirstOrDefaultAsync(p => p.Id == Id);
         }
 
+        public async Task<IQueryable<Parent_Category>> GetParentCategoryByName(string name)
+        {
+
+            var query = from value in appDbContext.ParentCategory
+                        where value.Parent_Category_Name == name || value.CreatedBy == name
+                        select value;
+
+            return query;
+        }
+
         public async Task<Parent_Category> AddParentCategory(Parent_Category parentcategory)
         {
             var result = await appDbContext.ParentCategory.AddAsync(parentcategory);

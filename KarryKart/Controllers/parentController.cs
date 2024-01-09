@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -32,6 +33,13 @@ namespace KarryKart.Controllers
         {
             var parents = await _iParentRepository.GetParentCategorybyId(id);
             return parents;
+        }
+
+        [HttpGet("GetParentCategorybByName")]
+        public async Task<ActionResult<IQueryable<Parent_Category>>> GetParentByName(string name)
+        {
+            var pro = await _iParentRepository.GetParentCategoryByName(name);
+            return Ok(pro);
         }
 
 

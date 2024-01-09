@@ -27,6 +27,20 @@ namespace Repositories
         {
             return await appDbContext.SEO.FirstOrDefaultAsync(p => p.Id == Id);
         }
+       
+        public async Task<IQueryable<SEO>> GetSEOByName(string name)
+
+        {
+
+            var query = from value in appDbContext.SEO
+
+                        where value.CreatedBy == name || value.ModifiedBy == name
+
+                        select value;
+
+            return query;
+
+        }
         public async Task<SEO> AddSEO(SEO seo)
         {
             var result = await appDbContext.SEO.AddAsync(seo);

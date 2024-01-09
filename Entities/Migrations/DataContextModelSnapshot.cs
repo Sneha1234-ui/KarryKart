@@ -363,10 +363,19 @@ namespace Entities.Migrations
                     b.Property<int>("DiscountId")
                         .HasColumnType("int");
 
+                    b.Property<int>("DownloadableProductId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FullDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GTINNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GiftCardId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InventoryId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDelete")
@@ -420,12 +429,18 @@ namespace Entities.Migrations
                     b.Property<bool>("Published")
                         .HasColumnType("bit");
 
+                    b.Property<int>("Recurring_ProductId")
+                        .HasColumnType("int");
+
                     b.Property<double>("ReferenceAmount")
                         .HasColumnType("float");
 
                     b.Property<string>("ReferenceUnit")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("RentalId")
+                        .HasColumnType("int");
 
                     b.Property<int>("RequiredproductIDs")
                         .HasColumnType("int");
@@ -435,6 +450,12 @@ namespace Entities.Migrations
 
                     b.Property<string>("SKU")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SeoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShippingId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
@@ -473,7 +494,21 @@ namespace Entities.Migrations
 
                     b.HasIndex("DiscountId");
 
+                    b.HasIndex("DownloadableProductId");
+
+                    b.HasIndex("GiftCardId");
+
+                    b.HasIndex("InventoryId");
+
                     b.HasIndex("ManufacturerId");
+
+                    b.HasIndex("Recurring_ProductId");
+
+                    b.HasIndex("RentalId");
+
+                    b.HasIndex("SeoId");
+
+                    b.HasIndex("ShippingId");
 
                     b.HasIndex("VendorId");
 
@@ -816,9 +851,51 @@ namespace Entities.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Entities.Models.DownloadableProduct", "DownloadableProduct")
+                        .WithMany()
+                        .HasForeignKey("DownloadableProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GiftCard", "GiftCard")
+                        .WithMany()
+                        .HasForeignKey("GiftCardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Inventory", "Inventory")
+                        .WithMany()
+                        .HasForeignKey("InventoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Entities.Models.Manufacturer", "Manufacturer")
                         .WithMany()
                         .HasForeignKey("ManufacturerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Recurring_Product", "RecurringProducts")
+                        .WithMany()
+                        .HasForeignKey("Recurring_ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Rental", "Rental")
+                        .WithMany()
+                        .HasForeignKey("RentalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.SEO", "SEO")
+                        .WithMany()
+                        .HasForeignKey("SeoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.Shipping", "Shipping")
+                        .WithMany()
+                        .HasForeignKey("ShippingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -830,7 +907,21 @@ namespace Entities.Migrations
 
                     b.Navigation("Category");
 
+                    b.Navigation("DownloadableProduct");
+
+                    b.Navigation("GiftCard");
+
+                    b.Navigation("Inventory");
+
                     b.Navigation("Manufacturer");
+
+                    b.Navigation("RecurringProducts");
+
+                    b.Navigation("Rental");
+
+                    b.Navigation("SEO");
+
+                    b.Navigation("Shipping");
 
                     b.Navigation("Vendor");
 

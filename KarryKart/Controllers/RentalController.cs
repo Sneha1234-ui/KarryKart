@@ -28,6 +28,13 @@ namespace KarryKart.Controllers
             var rental = await _iRentalRepository.GetRentalbyId(Id);
             return rental;
         }
+        [HttpGet("GetRentalByName")]
+        public async Task<ActionResult<IQueryable<Rental>>> GetRentalbyName(string name)
+        {
+            var pro = await _iRentalRepository.GetRentalByName(name);
+            return Ok(pro);
+        }
+        
         [HttpPost("AddRental")]
         public async Task<ActionResult<Rental>> AddRental(Rental rental)
         {

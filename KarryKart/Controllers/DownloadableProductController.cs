@@ -23,6 +23,12 @@ public class DownloadController : ControllerBase
         var product = await _iDownloadRepository.GetDownloadableProductById(Id);
         return product;
     }
+    [HttpGet("GetDownloadByName")]
+    public async Task<ActionResult<IQueryable<DownloadableProduct>>> GetDiscountbyName(string name)
+    {
+        var pro = await _iDownloadRepository.GetDownloadbyName(name);
+        return Ok(pro);
+    }
 
     [HttpPost("AddDownloadableProduct")]
     public async Task<ActionResult<DownloadableProduct>> AddDownloadableProduct(DownloadableProduct downloadableProduct)

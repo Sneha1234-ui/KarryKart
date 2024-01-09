@@ -14,6 +14,7 @@ namespace Contracts
         Task<Shipping> Addshipping(Shipping shipping);
         Task<Shipping> UpdateShipping(Shipping shipping);
         Task<Shipping> DeleteShipping(int Id);
+        Task<IQueryable<Shipping>> GetShippingByName(string name);
     }
 }
 

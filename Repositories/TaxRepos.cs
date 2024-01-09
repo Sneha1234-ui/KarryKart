@@ -32,6 +32,20 @@ namespace Repositories
             return await appDbContext.Tax
                 .FirstOrDefaultAsync(p => p.TaxId == Id);
         }
+        
+        public async Task<IQueryable<Tax>> GetTaxByName(string name)
+
+        {
+
+            var query = from value in appDbContext.Tax
+
+                        where value.TaxCode == name || value.ModifiedBy == name
+
+                        select value;
+
+            return query;
+
+        }
 
         public async Task<Tax> AddTax(Tax tax)
         {

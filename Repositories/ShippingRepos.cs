@@ -27,6 +27,17 @@ namespace Repositories
             return await appDbContext.Shipping
                 .FirstOrDefaultAsync(p => p.Id == Id);
         }
+        public async Task<IQueryable<Shipping>> GetShippingByName(string name)
+        {
+
+            var query = from value in appDbContext.Shipping
+                        where value.CreatedBy == name || value.ModifiedBy == name
+                        select value;
+
+            return query;
+        }
+
+
 
         public async Task<Shipping> Addshipping(Shipping shipping)
         {

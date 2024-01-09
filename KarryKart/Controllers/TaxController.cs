@@ -19,6 +19,13 @@ public class TaxController : ControllerBase
         var Tax = await _iTaxRepository.GetTax();
         return Tax;
     }
+    [HttpGet("GetTaxByName")]
+    public async Task<ActionResult<IQueryable<Tax>>> GetTaxbyName(string name)
+    {
+        var pro = await _iTaxRepository.GetTaxByName(name);
+        return Ok(pro);
+    }
+    
     [HttpGet("GetTaxbyId")]
     public async Task<ActionResult<Tax>> GetTaxbyId(int Id)
     {

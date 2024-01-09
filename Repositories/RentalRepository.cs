@@ -27,6 +27,16 @@ namespace Repositories
             return await appDbContext.Rental
                 .FirstOrDefaultAsync(r => r.Id == Id);
         }
+        public async Task<IQueryable<Rental>> GetRentalByName(string name)
+        {
+
+            var query = from value in appDbContext.Rental
+                        where value.CreatedBy == name || value.ModifiedBy == name
+                        select value;
+
+            return query;
+        }
+        
 
         public async Task<Rental> AddRental(Rental rental)
         {

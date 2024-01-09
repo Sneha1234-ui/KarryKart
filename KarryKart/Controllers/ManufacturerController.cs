@@ -33,6 +33,12 @@ namespace KarryKart.Controllers
             var manu = await _iManufacturerRepository.GetManufacturerbyId(id);
             return manu;
         }
+        [HttpGet("GetManufacturerByName")]
+        public async Task<ActionResult<IQueryable<Manufacturer>>> GetManufacturerbyName(string name)
+        {
+            var pro = await _iManufacturerRepository.GetManufacturerbyName(name);
+            return Ok(pro);
+        }
 
 
         [HttpPost("AddManufacturer")]

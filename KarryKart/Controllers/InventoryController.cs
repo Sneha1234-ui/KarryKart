@@ -27,6 +27,12 @@ namespace KarryKart.Controllers
             var Inventory = await _iInventoryRepository.GetInventorybyId(id);
             return Inventory;
         }
+        [HttpGet("GetInventoryByName")]
+        public async Task<ActionResult<IQueryable<Inventory>>> GetGiftCardbyName(string name)
+        {
+            var pro = await _iInventoryRepository.GetInventorybyName(name);
+            return Ok(pro);
+        }
 
         [HttpPost("AddInventory")]
         public async Task<ActionResult<Inventory>> AddInventory(Inventory inventory)

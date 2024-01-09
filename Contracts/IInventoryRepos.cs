@@ -14,5 +14,6 @@ namespace Contracts
         Task<Inventory> AddInventory(Inventory inventory);
         Task<Inventory> UpdateInventory(Inventory inventory);
         Task<Inventory> DeleteInventory(int Id);
+        Task<IQueryable<Inventory>> GetInventorybyName(string Name);
     }
 }

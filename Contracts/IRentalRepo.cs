@@ -14,5 +14,7 @@ namespace Contracts
         Task<Rental> AddRental(Rental rental);
         Task<Rental> UpdateRental(Rental rental);
         Task<Rental> DeleteRental(int Id);
+        Task<IQueryable<Rental>> GetRentalByName(string name);
+        
     }
 }

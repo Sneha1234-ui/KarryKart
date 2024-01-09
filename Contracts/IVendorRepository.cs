@@ -7,4 +7,5 @@ public interface IVendorRepository
     Task<Vendors> AddVendors(Vendors Vendors);
     Task<Vendors> UpdateVendors(Vendors Vendors);
     Task<Vendors> DeleteVendors(int vendorsId);
+    Task<IQueryable<Vendors>> GetVendorsByName(string name);
 }

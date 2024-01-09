@@ -33,11 +33,17 @@ namespace KarryKart.Controllers
 
             return vendors;
         }
-        [HttpGet("GetById")]
+        [HttpGet("GetVendorsById")]
         public async Task<ActionResult<Vendors>> GetVendorsByID(int id)
         {
             var vendors = await _vendorRepository.GetVendorsbyId(id);
             return vendors;
+        }
+        [HttpGet("GetVendorsByName")]
+        public async Task<ActionResult<IQueryable<Vendors>>> GetVendorsbyName(string name)
+        {
+            var pro = await _vendorRepository.GetVendorsByName(name);
+            return Ok(pro);
         }
         [HttpGet("UpdateVendors/{Id}")]
         public async Task<ActionResult<Vendors>> UpdateVendors(Vendors vendors)

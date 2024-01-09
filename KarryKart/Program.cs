@@ -21,6 +21,17 @@ builder.Services.AddScoped<IDiscountRepos, DiscountRepos>();
 builder.Services.AddScoped<ITaxRepos, TaxRepos>();
 builder.Services.AddScoped<IVendorRepository, VendorRepository>();
 builder.Services.AddScoped<IShippingRepos, ShippingRepos>();
+builder.Services.AddScoped<IInventoryRepos, InventoryRepository>();
+builder.Services.AddScoped<IGiftCard, GiftCardRepo>();
+builder.Services.AddScoped<IDownload, DownloadRepos>();
+builder.Services.AddScoped<IRentalRepo, RentalRepository>();
+builder.Services.AddScoped<IRecurringProduct,RecurringProductRepo>();
+builder.Services.AddScoped<ISEO,SEORepo>();
+
+
+
+
+
 
 
 

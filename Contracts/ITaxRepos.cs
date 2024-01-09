@@ -14,6 +14,7 @@ namespace Contracts
         Task<Tax> AddTax(Tax tax);
         Task<Tax> UpdateTax(Tax tax);
         Task<Tax> DeleteTax(int Id);
+        Task<IQueryable<Tax>> GetTaxByName(string name);
 
     }
 }

@@ -27,6 +27,13 @@ namespace KarryKart.Controllers
             return category;
         }
 
+        [HttpGet("GetCategorybByName")]
+        public async Task<ActionResult<IQueryable<Category>>> GetParentByName(string name)
+        {
+            var pro = await _iCategoryRepository.GetCategoryByName(name);
+            return Ok(pro);
+        }
+
         [HttpPost("AddCategory")]
         public async Task<ActionResult<Category>> AddCategory(Category category)
         {

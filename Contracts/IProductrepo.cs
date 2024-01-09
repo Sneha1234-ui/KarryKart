@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Entities.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace Contracts
         Task<Product> AddProduct(Product Product);
         Task<Product> UpdateProduct(Product Product);
         Task<Product> DeleteProduct(int Id);
+        Task<IQueryable<Product>> GetProductByName(string name);
+        Task<IQueryable<Product>> SearchbyProductType(ProductTypeEnum status);
+
     }
 
 }

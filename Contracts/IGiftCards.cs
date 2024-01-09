@@ -5,4 +5,6 @@
     Task<GiftCard> AddGiftCard(GiftCard giftCard);
     Task<GiftCard> UpdateGiftCard(GiftCard giftCard);
     Task DeleteGiftCard(int giftCardid);
+    Task<IQueryable<GiftCard>> GetGiftCardbyName(string Name);
+    
 }

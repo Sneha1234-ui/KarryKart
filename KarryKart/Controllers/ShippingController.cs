@@ -27,6 +27,12 @@ namespace KarryKart.Controllers
             var Shipping = await _iShippingRepository.GetShippingById(id);
             return Shipping;
         }
+        [HttpGet("GetShippingByName")]
+        public async Task<ActionResult<IQueryable<Shipping>>> GetShippingbyName(string name)
+        {
+            var pro = await _iShippingRepository.GetShippingByName(name);
+            return Ok(pro);
+        }
 
         [HttpPost("AddShipping")]
         public async Task<ActionResult<Shipping>> AddShipping(Shipping shipping)

@@ -37,6 +37,20 @@ namespace Repositories
             return await context.Vendors
                  .FirstOrDefaultAsync(V => V.VendorId == Id);
         }
+       
+        public async Task<IQueryable<Vendors>> GetVendorsByName(string name)
+
+        {
+
+            var query = from value in context.Vendors
+
+                        where value.Name == name || value.Email == name
+
+                        select value;
+
+            return query;
+
+        }
 
         public async Task<Vendors> UpdateVendors(Vendors Vendors)
         {

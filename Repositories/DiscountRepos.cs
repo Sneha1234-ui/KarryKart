@@ -31,6 +31,17 @@ namespace Repositories
                 .FirstOrDefaultAsync(p => p.Discount_ID == DiscountId);
         }
 
+        public async Task<IQueryable<Discounts>> GetDiscountsByName(string name)
+        {
+
+            var query = from value in appDbContext.Discount
+                        where value.Discount_Name == name || value.Created_By == name
+                        select value;
+
+            return query;
+        }
+
+
         public async Task<Discounts> AddDiscounts(Discounts discount)
         {
             var result = await appDbContext.Discount.AddAsync(discount);

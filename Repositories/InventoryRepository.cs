@@ -30,6 +30,16 @@ namespace Repositories
             return await appDbContext.Inventory
                 .FirstOrDefaultAsync(p => p.Id == Id);
         }
+        public async Task<IQueryable<Inventory>> GetInventorybyName(string name)
+        {
+
+            var query = from value in appDbContext.Inventory
+                        where value.CreatedBy == name || value.ModifiedBy == name
+                        select value;
+
+            return query;
+        }
+        
 
         public async Task<Inventory> AddInventory(Inventory inventory)
         {

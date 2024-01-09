@@ -11,9 +11,10 @@ namespace Contracts
             Task<Parent_Category> AddParentCategory(Parent_Category parentcategory);
             Task<Parent_Category> UpdateParentCategory(Parent_Category parentcategory);
             Task<Parent_Category> DeleteParentCategory(int Id);
+            Task<IQueryable<Parent_Category>> GetParentCategoryByName(string name);
 
 
-        }
+    }
     
 
 }

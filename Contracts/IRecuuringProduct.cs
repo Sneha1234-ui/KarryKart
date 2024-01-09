@@ -14,5 +14,6 @@ namespace Contracts
         Task<Recurring_Product> AddRecurringProduct(Recurring_Product RecurringProduct);
         Task<Recurring_Product> UpdateRecurringProduct(Recurring_Product RecurringProduct);
         Task DeleteRecurringProduct(int prodId);
+        Task<IQueryable<Recurring_Product>> GetRecurringProductByName(string name);
     }
 }

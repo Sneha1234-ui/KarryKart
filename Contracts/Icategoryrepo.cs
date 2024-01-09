@@ -11,6 +11,7 @@ namespace Contracts
         Task<Category> AddCategory(Category category);
         Task<Category> UpdateCategory(Category category);
         Task<Category> DeleteCategory(int Id);
+        Task<IQueryable<Category>> GetCategoryByName(string name);
 
 
     }

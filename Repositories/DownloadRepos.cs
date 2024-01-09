@@ -28,6 +28,17 @@ namespace Repositories
             return await appDbContext.DownloadProduct
                 .FirstOrDefaultAsync(p => p.Id == Id);
         }
+
+        public async Task<IQueryable<DownloadableProduct>> GetDownloadbyName(string name)
+        {
+
+            var query = from value in appDbContext.DownloadProduct
+                        where value.ModifiedBy == name || value.CreatedBy == name
+                        select value;
+
+            return query;
+        }
+     
         public async Task<DownloadableProduct> AddDownloadableProduct(DownloadableProduct downloadableProduct)
         {
             var result = await appDbContext.DownloadProduct.AddAsync(downloadableProduct);

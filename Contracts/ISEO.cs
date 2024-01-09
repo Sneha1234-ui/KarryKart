@@ -15,6 +15,7 @@ using System.Threading.Tasks;
             Task<SEO> UpdateSEO(SEO seo);
             Task<SEO> DeleteSEO(SEO seo);
             Task<SEO> GetSEOById(int seoId);
-        }
+            Task<IQueryable<SEO>> GetSEOByName(string name);
+    }
     }
 

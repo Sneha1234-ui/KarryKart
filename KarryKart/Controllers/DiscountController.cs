@@ -28,6 +28,12 @@ namespace KarryKart.Controllers
             var discount = await _iDiscountRepository.GetDiscountById(id);
             return discount;
         }
+        [HttpGet("GetDiscountByName")]
+        public async Task<ActionResult<IQueryable<Discounts>>> GetDiscountbyName(string name)
+        {
+            var pro = await _iDiscountRepository.GetDiscountsByName(name);
+            return Ok(pro);
+        }
         [HttpPost("AddDiscount")]
         public async Task<ActionResult<Discounts>> AddDiscount(Discounts discount)
         {

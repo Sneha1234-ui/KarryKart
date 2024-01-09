@@ -25,6 +25,32 @@ namespace Entities.Models
         public Category Category { get; set; }
         public int ManufacturerId { get; set; }
         public Manufacturer Manufacturer { get; set; }
+        // forgin key
+        public int GiftCardId { get; set; }
+        public GiftCard GiftCard { get; set; }
+        // forgin key
+        public int Recurring_ProductId { get; set; }
+        public Recurring_Product RecurringProducts { get; set; }
+
+        //forgin key
+
+        public int RentalId { get; set; }
+        public Rental Rental { get; set; }
+        //forgin key
+        public int SeoId { get; set; }
+        public SEO SEO { get; set; }
+        //forgin key
+        
+        public int DownloadableProductId { get; set; }
+        public DownloadableProduct DownloadableProduct { get; set; }
+        //forgin key
+        public int ShippingId { get; set; }
+        public Shipping Shipping { get; set; }
+
+        //forgin key
+        public int InventoryId { get; set; }
+        public Inventory Inventory { get; set; }
+
         public bool Published { get; set; }
         public string ProductTags { get; set; }
         public int GTINNumber { get; set; }

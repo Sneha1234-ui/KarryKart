@@ -27,6 +27,12 @@ namespace karryKart.Controllers
             var player = await _SEO.GetSEOById(id);
             return player;
         }
+        [HttpGet("GetSEOByName")]
+        public async Task<ActionResult<IQueryable<SEO>>> GetSEObyName(string name)
+        {
+            var pro = await _SEO.GetSEOByName(name);
+            return Ok(pro);
+        }
         [HttpPost("AddSEO")]
         public async Task<ActionResult<SEO>> AddSEO(SEO seo)
         {

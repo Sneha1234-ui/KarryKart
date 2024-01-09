@@ -28,6 +28,16 @@ namespace Repositories
                 .FirstOrDefaultAsync(p => p.ManufacturerId == Id);
         }
 
+        public async Task<IQueryable<Manufacturer>> GetManufacturerbyName(string name)
+        {
+
+            var query = from value in appDbContext.manufacturers
+                        where value.ManufacturerName == name || value.ModifiedBy == name
+                        select value;
+
+            return query;
+        }
+
         public async Task<Manufacturer> AddManufacturer(Manufacturer manufacturers)
         {
             var result = await appDbContext.manufacturers.AddAsync(manufacturers);

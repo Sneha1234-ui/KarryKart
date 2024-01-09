@@ -14,5 +14,6 @@ namespace Contracts
         Task<DownloadableProduct> AddDownloadableProduct(DownloadableProduct downloadableProduct);
         Task<DownloadableProduct> UpdateDownloadableProduct(DownloadableProduct downloadableProduct);
         Task<DownloadableProduct> DeleteDownloadableProduct(int Id);
+        Task<IQueryable<DownloadableProduct>> GetDownloadbyName(string Name);
     }
 }

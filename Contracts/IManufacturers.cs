@@ -8,6 +8,7 @@ namespace Contracts
         Task<Manufacturer> AddManufacturer(Manufacturer manufaturer);
         Task<Manufacturer> UpdateManufacturer(Manufacturer manufaturer);
         Task<Manufacturer> DeleteManufacturer(int id);
+        Task<IQueryable<Manufacturer>> GetManufacturerbyName(string Name);
     }
 
 
